@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Seamless</string>
-    <string name="btn_membru">Esti deja membru? Intra in cont!</string>
-    <string name="btn_login">Inregistreaza-te!</string>
+    <string name="btn_membru">Nu esti membru?Creeaza un cont!</string>
+    <string name="btn_login">Log in</string>
     <string name="tb_parola">Parola</string>
     <string name="tb_nume">Nume</string>
     <string name="tb_email">Email</string>
+    <string name="hintNume">Nume</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintParola">Parola</string>
+    <string name="btn_salvare">Salveaza!</string>
+    <string name="hintAdresa">Adresa</string>
 </resources>

@@ -21,19 +21,19 @@
         app:srcCompat="@drawable/sushi2" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="350dp"
         android:background="@color/purple_700"
         android:text="@string/btn_login"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/btncontnou"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btncontnou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="550dp"
@@ -58,46 +58,34 @@
         tools:layout_editor_absoluteY="-41dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etParola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:fontFamily="sans-serif"
+        android:hint="@string/hintParola"
         android:inputType="textPersonName"
-        android:text="@string/tb_parola"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnlogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/tb_nume"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:backgroundTint="@color/white"
         android:ems="10"
+        android:hint="@string/hintEmail"
         android:inputType="textPersonName"
-        android:text="@string/tb_email"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/etParola"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
