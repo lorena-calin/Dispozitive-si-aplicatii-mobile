@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
            public void onClick(View v) {
                if (isValid()) {
                    Toast.makeText(MainActivity.this, "Ati intrat in cont cu succes!", Toast.LENGTH_LONG).show();
-
+                   Intent newWindow=new Intent(MainActivity.this,MainActivity3.class);
+                   startActivity(newWindow);
                }
            }
        });
