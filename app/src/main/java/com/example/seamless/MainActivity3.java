@@ -24,6 +24,39 @@ public class MainActivity3 extends AppCompatActivity {
         lv = findViewById(R.id.listview);
         meniuAdapter=new MeniuAdapter(getList());
         lv.setAdapter(meniuAdapter);
+
+        JsonReader reader=new JsonReader();
+        Thread thread=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                reader.read("https://jsonkeeper.com/b/VPPJ", new IResponse() {
+                    @Override
+                    public void onSuccess(List<Meniuri> restaurante) {
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(MainActivity3.this,restaurante.toString(),Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onError(String mesaj) {
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(MainActivity3.this,mesaj,Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        thread.start();
+
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
