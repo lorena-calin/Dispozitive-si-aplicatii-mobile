@@ -3,6 +3,7 @@ package com.example.seamless;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,6 +17,7 @@ public class MainActivity3 extends AppCompatActivity {
 
     private ListView lv;
     private MeniuAdapter meniuAdapter;
+    private PersoanaDAO persoanaDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,30 @@ public class MainActivity3 extends AppCompatActivity {
         meniuAdapter=new MeniuAdapter(getList());
         lv.setAdapter(meniuAdapter);
 
+        persoanaDAO=Database.getInstance(this).getDatabase().persoanaDAO();
+        List<Persoana_Bazadedate> lista2=getPersoana();
+    //    persoanaDAO.insert(lista2.get(0),lista2.get(1));
+        for (int i=0;i<lista2.size();i++){
+            persoanaDAO.insert(lista2.get(i));
+        }
+        List<Persoana_Bazadedate> lista3=persoanaDAO.getPersoanaComenziHigh(3);
+        Log.v("comenziHigh",lista3.toString());
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                persoanaDAO = Database.getInstance(MainActivity3.this).getDatabase().persoanaDAO();
+                List<Persoana_Bazadedate> lista = getPersoana();
+                persoanaDAO.deleteAll();
+                for(int i=0; i<lista.size();i++){
+                    persoanaDAO.insertAll(lista.get(i));
+                }
+            }
+        });
+        thread.start();
+
         JsonReader reader=new JsonReader();
-        Thread thread=new Thread(new Runnable() {
+        Thread thread2=new Thread(new Runnable() {
             @Override
             public void run() {
                 reader.read("https://jsonkeeper.com/b/VPPJ", new IResponse() {
@@ -108,7 +132,7 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     private List<Meniuri> getList2() {
-        ArrayList<Meniuri> lista=new ArrayList<>();
+        ArrayList<Meniuri> lista1=new ArrayList<>();
         Meniuri restaurant1=new Meniuri("Tres Olivos", 4.9f, "Livrare gratis comanda minima 30 lei", "Prima comanda de pe Seamless are livrarea gratuita!");
         Meniuri restaurant2=new Meniuri("Prestij",  4.7f, "Livrare gratis comanda minima 30 lei", "Voucher la prima comanda 20% reducere!");
         Meniuri restaurant3=new Meniuri("Mcdonalds", 4.5f, "Cost livrare 8 lei", "La orice meniu mare premium, primesti un mcpuisor gratuit!");
@@ -120,17 +144,27 @@ public class MainActivity3 extends AppCompatActivity {
         Meniuri restaurant9=new Meniuri("Cartofisserie", 4.6f, "Livrare comanda minima 30 lei", "Prima comanda de pe Seamless are livrarea gratuita!");
         Meniuri restaurant10=new Meniuri("Starbucks", 4.8f, "Cost livrare 5,99 lei", "Meniu mic-dejun, croissant si cafea grande, 15 lei!");
 
-        lista.add(restaurant1);
-        lista.add(restaurant2);
-        lista.add(restaurant3);
-        lista.add(restaurant4);
-        lista.add(restaurant5);
-        lista.add(restaurant6);
-        lista.add(restaurant7);
-        lista.add(restaurant8);
-        lista.add(restaurant9);
-        lista.add(restaurant10);
+        lista1.add(restaurant1);
+        lista1.add(restaurant2);
+        lista1.add(restaurant3);
+        lista1.add(restaurant4);
+        lista1.add(restaurant5);
+        lista1.add(restaurant6);
+        lista1.add(restaurant7);
+        lista1.add(restaurant8);
+        lista1.add(restaurant9);
+        lista1.add(restaurant10);
 
-        return lista;
+        return lista1;
+    }
+
+
+    public List<Persoana_Bazadedate> getPersoana(){
+        Persoana_Bazadedate persoana1=new Persoana_Bazadedate("Calin","hag@ja.com","haghg",5);
+        Persoana_Bazadedate persoana2=new Persoana_Bazadedate("Andrei","hags@jahs.com","jagah",9);
+        List<Persoana_Bazadedate> lista2=new ArrayList<>();
+        lista2.add(persoana1);
+        lista2.add(persoana2);
+        return lista2;
     }
 }

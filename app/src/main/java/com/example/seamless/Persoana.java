@@ -1,12 +1,14 @@
 package com.example.seamless;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 public class Persoana implements Serializable {
-    private String nume;
-    private String email;
-    private String parola;
-    private String adresa;
+private String nume;
+private String email;
+private String parola;
+private String adresa;
 
 
     public Persoana() {
