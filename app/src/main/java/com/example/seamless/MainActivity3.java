@@ -33,7 +33,9 @@ public class MainActivity3 extends AppCompatActivity {
         lv = findViewById(R.id.listview);
         meniuAdapter=new MeniuAdapter(getList());
         lv.setAdapter(meniuAdapter);
+
         writeToDataBase();
+        readFromDatabase();
 
         persoanaDAO=Database.getInstance(this).getDatabase().persoanaDAO();
         List<Persoana_Bazadedate> lista2=getPersoana();
