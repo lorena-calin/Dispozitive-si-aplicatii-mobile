@@ -22,7 +22,7 @@ public class Persoana_Bazadedate {
     @ColumnInfo (name="numar comenzi")
     private int nrcomenzi;
 
-    public Persoana_Bazadedate(String nume, String email, String parola, int nrcomenzi) {
+    public Persoana_Bazadedate(int idclient, String nume, String email, String parola, int nrcomenzi) {
         this.nume = nume;
         this.email = email;
         this.parola = parola;

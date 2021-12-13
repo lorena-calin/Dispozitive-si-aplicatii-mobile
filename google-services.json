@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "571326647576",
+    "project_id": "seamless-dbf48",
+    "storage_bucket": "seamless-dbf48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571326647576:android:7e87b735c029eb970ba26d",
+        "android_client_info": {
+          "package_name": "com.example.seamless"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571326647576-i634fm9u5oko2sd4kfqmkm780p3qdhb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMDyKjRr26soNE6qpnKDmjk1pJeU40Z6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571326647576-i634fm9u5oko2sd4kfqmkm780p3qdhb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
